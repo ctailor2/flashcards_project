@@ -1,11 +1,11 @@
 get '/round/:round_id/card/:card_id' do
-  # if round complete
   @round = Round.find_by_id(params[:round_id])
-  @round.complete?
-  # redirect to '/round/:round_id/stats'
-  # else
-  # render card view
-  erb :card_view
+
+  if @round.complete?
+    redirect to "/round/#{@round.id}/stats"
+  else
+    erb :card_view
+  end
 end
 
 post '/round/:round_id/card/:card_id' do
