@@ -49,6 +49,9 @@ end
 
 
 get '/round/:round_id/stats' do
+
+  @round = Round.find(params[:round_id])
+
   erb :stats_view
 
 end 
