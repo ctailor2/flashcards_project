@@ -34,14 +34,16 @@ get '/' do
 end
 
 post '/deck/:deck_id/round/' do
-  # deck = Deck.find_by_id(params[:deck_id])
-  
+  deck = Deck.find_by_id(params[:deck_id])
+  # Will have to grab user from session once that is implemented
+  user = User.find_by_id(1)
   # Create a round 
-  # round = deck.round.create()
-
+  round = user.rounds.create(deck_id: deck.id)
+  round.created_at.inspect
   # Get card from deck
-
+  card = deck.cards.first
   # Redirect to get round/roundid/card/cardid
+  redirect to("/round/#{round.id}/card/#{card.id}")
 end
 
 
