@@ -1,9 +1,11 @@
 get '/round/:round_id/card/:card_id' do
-  # if round complete
-  # redirect to '/round/:round_id/stats'
-  # else
-  # render card view
-  erb :card_view
+  @round = Round.find_by_id(params[:round_id])
+
+  if @round.complete?
+    redirect to "/round/#{@round.id}/stats"
+  else
+    erb :card_view
+  end
 end
 
 post '/round/:round_id/card/:card_id' do
@@ -55,3 +57,8 @@ get '/round/:round_id/stats' do
   erb :stats_view
 
 end 
+
+# ~> NoMethodError
+# ~> undefined method `get' for main:Object
+# ~>
+# ~> /Users/apprentice/Desktop/flashcards_project/app/controllers/index.rb:1:in `<main>'
