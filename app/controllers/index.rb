@@ -21,12 +21,14 @@ end
 
 #################    CHASM OF DOOOOOOOOOOOOMMMMMM        ########################
 
+#Chirag and Meara's side!!!!
 
 get '/' do
   # list decks
   # decks are clickable
   # deck links to post with deck_id
 
+  @decks = Deck.all
 
   erb :index
 end
