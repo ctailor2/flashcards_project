@@ -1,11 +1,4 @@
-get '/' do
-  # list decks
-  # decks are clickable
-  # deck links to post with deck_id
 
-
-  erb :index
-end
 
 post '/deck/:deck_id/round/' do
   # deck = Deck.find_by_id(params[:deck_id])
@@ -34,6 +27,20 @@ post '/round/:round_id/card/:card_id' do
   # update attempt whether guessed correctly
   redirect to '/round/:round_id/card/:card_id/attempt/:attempt_id'
 end
+
+
+#################    CHASM OF DOOOOOOOOOOOOMMMMMM        ########################
+
+
+get '/' do
+  # list decks
+  # decks are clickable
+  # deck links to post with deck_id
+
+
+  erb :index
+end
+
 
 get '/round/:round_id/card/:card_id/attempt/:attempt_id' do 
   # cature attempt in variable
