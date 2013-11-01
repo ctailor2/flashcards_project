@@ -1,7 +1,7 @@
 Flashcards Group Project
 
-Team: \n
-Meara Charnetzki \n
-Katy Exline \n
-Daniel Lu  \n
+Team:
+Meara Charnetzki
+Katy Exline
+Daniel Lu
 Chirag Tailor
