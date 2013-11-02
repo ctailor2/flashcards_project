@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Welcome to Flashcards!</h1>
+  <h2>Hi, <%= current_user.name %>.</h2>
 
   <!-- clickable deck links for each deck, to post -->
 
@@ -12,3 +13,10 @@
 <% end %>
 
 </div>
+
+<div class="container">
+  <form action="/logout" method="POST">
+    <input type="submit" value="Logout">
+  </form>
+</div>
+
