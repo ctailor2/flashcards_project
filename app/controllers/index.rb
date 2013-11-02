@@ -4,20 +4,50 @@ get '/round/:round_id/card/:card_id' do
   if @round.complete?
     redirect to "/round/#{@round.id}/stats"
   else
+  @card = Card.find_by_id(params[:card_id])
     erb :card_view
   end
 end
 
 post '/round/:round_id/card/:card_id' do
-  # insantiate attempt using round id, card id, and user input
-  # check if user input is equal to card answer
-  # update attempt whether guessed correctly
-  redirect to '/round/:round_id/card/:card_id/attempt/:attempt_id'
+  attempt = Attempt.create(round_id: params[:round_id], card_id: params[:card_id], guess: params[:guess])
+  corresponding_card = Card.find_by_id(params[:card_id])
+  if attempt.guess == corresponding_card.answer
+    Attempt.update(attempt.id, correct: true)
+  else
+    Attempt.update(attempt.id, correct: false)
+  end
+  redirect to "/round/#{attempt.round_id}/card/#{attempt.card_id}/attempt/#{attempt.id}"
 end
 
 get '/round/:round_id/card/:card_id/attempt/:attempt_id' do 
-  # cature attempt in variable
+  @attempt = Attempt.find_by_id(params[:attempt_id])
+  @round = Round.find_by_id(params[:round_id])
+  @card = Card.find_by_id(params[:card_id]) 
   erb :answer_view
+end
+
+post '/deck/:deck_id/round/:round_id' do
+  deck = Deck.find_by_id(params[:deck_id])
+  # Will have to grab user from session once that is implemented
+  user = User.find_by_id(1)
+  round = Round.find_by_id(params[:round_id])
+
+  answered_cards = []
+  correct_attempts = Attempt.where(round_id: round.id, correct: true)
+  correct_attempts.each do |attempt|
+    answered_cards << Card.find_by_id(attempt.card_id)
+  end
+
+  unanswered_cards = deck.cards - answered_cards
+  new_card = unanswered_cards.sample
+
+  if round.complete?
+    redirect to "/round/#{round.id}/stats"
+  else 
+    redirect to "/round/#{round.id}/card/#{new_card.id}"
+  end
+
 end
 
 
@@ -38,12 +68,12 @@ end
 post '/deck/:deck_id/round/' do
   deck = Deck.find_by_id(params[:deck_id])
   # Will have to grab user from session once that is implemented
-  user = User.find_by_id(1)
+  user = User.first
   # Create a round 
   round = user.rounds.create(deck_id: deck.id)
   round.created_at.inspect
   # Get card from deck
-  card = deck.cards.first
+  card = deck.cards.sample
   # Redirect to get round/roundid/card/cardid
   redirect to("/round/#{round.id}/card/#{card.id}")
 end

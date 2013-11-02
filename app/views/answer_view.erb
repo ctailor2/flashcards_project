@@ -6,6 +6,26 @@ else
 
 <div class="container">
 
+  <h2>Card view page (replace name)</h2>
+  <h3>Instructions for the user</h3>
+  <div class="card">
+    <p>Your guess: <%= @attempt.guess %></p> 
+    <p>The answer: <%= @card.answer %></p>
+
+  <% if @attempt.correct %>
+    <p>You were correct!</p>
+    <% else %>
+    <p>You were incorrect.</p>
+    <% end %>
+  </div>
+
+  <!--  -->
+  <form action="/deck/<%= @round.deck_id %>/round/<%= @round.id %>" method='POST'>
+    <input type="submit" value="Next Card">
+  </form>
+
+  <a href="/"><input type="submit" value="Home"</a>
+
 </div>
 <!-- 
 provide 'next' button directs to get 'round/:round_id/card/:card_id' 
