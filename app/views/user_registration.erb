@@ -1,0 +1,45 @@
+<div class="container">
+
+  <a href='/login'>
+    <button style="width:100px">Login</button>
+  </a>
+
+  <h1>Register</h1>
+
+  <table style="width:550px" border="1">
+    <form action="/register" method="POST">
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" style="width:515px" name="name"></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type="text" style="width:515px" name="email"></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input type="text" style="width:515px" name="password"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" value="Sign-up"></td>
+      </tr>
+    </form>
+  </table>
+
+  <% if @errors %>
+    <p>Errors on the page:</p>
+    <ul>
+      <% @errors.each do |field, message| %>
+      <li style="color:red"><%= field %> <%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+</div>
+
+<div class="container">
+  <form action="/" method="GET">
+    <input type="submit" value="Cancel">
+  </form>
+</div>
