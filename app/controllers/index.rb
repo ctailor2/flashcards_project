@@ -4,13 +4,14 @@ get '/round/:round_id/card/:card_id' do
   # if @round.complete?
   #   redirect to "/round/#{@round.id}/stats"
   # else
-      @card = Card.find_by_id(params[:card_id]
+  @card = Card.find_by_id(params[:card_id])
     erb :card_view
   # end
   # erb :card_view
 end
 
 post '/round/:round_id/card/:card_id' do
+
   # insantiate attempt using round id, card id, and user input
   # check if user input is equal to card answer
   # update attempt whether guessed correctly
@@ -19,6 +20,9 @@ end
 
 get '/round/:round_id/card/:card_id/attempt/:attempt_id' do 
   # cature attempt in variable
+  @attempt = Attempt.find_by_id(params[:attempt_id])
+  @round = Round.find_by_id(params[:round_id])
+  @card = Card.find_by_id(params[:card_id]) 
   erb :answer_view
 end
 

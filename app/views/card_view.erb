@@ -1,12 +1,12 @@
 
 <div class="container">
-<h2>Card view page (replace name)</h2>
-<h3>Instructions for the user</h3>
-<div class="card">
-  <p><%= @card.question %></p>
-</div>
+  <h2>Card view page (replace name)</h2>
+  <h3>Instructions for the user</h3>
+  <div class="card">
+    <p><%= @card.question %></p>
+  </div>
 
-<div class="form">
+  <div class="form">
    <form action="/round/<%= @round.id %>/card/<%= @card.id %>" method="post">
       <input type="text" name="guess">
       <input type="submit" value="Check Answer">

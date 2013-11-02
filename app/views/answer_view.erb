@@ -6,6 +6,22 @@ else
 
 <div class="container">
 
+  <h2>Card view page (replace name)</h2>
+  <h3>Instructions for the user</h3>
+  <div class="card">
+    <p>Your guess: <%= @attempt.guess %></p> 
+    <p>The answer: <%= @card.answer %></p>
+
+  <% if @attempt.correct %>
+    <p>You were correct!</p>
+    <% else %>
+    <p>You were incorrect.</p>
+    <% end %>
+  </div>
+
+  <!--  -->
+  <a href="/round/<%= @round.id %>"><button type="button">Next Card</button></a>
+
 </div>
 <!-- 
 provide 'next' button directs to get 'round/:round_id/card/:card_id' 
