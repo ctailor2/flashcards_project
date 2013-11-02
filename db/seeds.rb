@@ -1,4 +1,4 @@
-deck = Deck.create(title: "Salamanders")
+deck = Deck.create(title: "Salamander Names")
 
 deck.cards.create(question: "Alex", answer: "Froelich")
 deck.cards.create(question: "Andrew", answer: "Guard")
@@ -25,3 +25,17 @@ deck.cards.create(question: "Ava", answer: "St. Clair")
 deck.cards.create(question: "Diana", answer: "Calvache")
 deck.cards.create(question: "Justin", answer: "Park")
 deck.cards.create(question: "Pedro", answer: "Coronel")
+
+
+deck = Deck.create(title: "Harry Potter Trivia")
+
+deck.cards.create(question: "What shape is Harry's scar?", answer: "lightning bolt")
+deck.cards.create(question: "What is the oldest Weasley child?", answer: "Bill")
+deck.cards.create(question: "Harry is the master of which house-elf?", answer: "Kreacher")
+deck.cards.create(question: "Which Hogwarts founder created a diadem that was later lost?", answer: "Ravenclaw")
+deck.cards.create(question: "Who or what killed Severus Snape?", answer: "Nagini")
+deck.cards.create(question: "Who pretended to be Mad-Eye Moody teaching at Hogwarts?", answer: "Barty Crouch Jr.")
+deck.cards.create(question: "What is the spell for the Killing Curse?", answer: "Avada Kedavra")
+
+User.create(name: "Meara", email: "meara@dbc.com", password: "password")
+User.create(name: "Daniel", email: "daniel@dbc.com", password: "password")

@@ -28,7 +28,7 @@ class CreateSchema < ActiveRecord::Migration
 
     create_table :attempts do |t|
       t.string :guess
-      t.boolean :correct
+      t.boolean :correct, :default => false
       t.belongs_to :round
       t.belongs_to :card
       t.timestamps
