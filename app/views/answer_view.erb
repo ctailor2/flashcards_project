@@ -20,7 +20,9 @@ else
   </div>
 
   <!--  -->
-  <a href="/round/<%= @round.id %>"><button type="button">Next Card</button></a>
+  <form action="/deck/<%= @round.deck_id %>/round/<%= @round.id %>" method='POST'>
+    <input type="submit" value="Next Card">
+  </form>
 
 </div>
 <!-- 

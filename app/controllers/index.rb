@@ -1,36 +1,41 @@
 get '/round/:round_id/card/:card_id' do
   @round = Round.find_by_id(params[:round_id])
 
-  # if @round.complete?
-  #   redirect to "/round/#{@round.id}/stats"
-  # else
+  if @round.complete?
+    redirect to "/round/#{@round.id}/stats"
+  else
   @card = Card.find_by_id(params[:card_id])
     erb :card_view
-  # end
+  end
   # erb :card_view
 end
 
 post '/round/:round_id/card/:card_id' do
-  # insantiate attempt using round id, card id, and user input
   attempt = Attempt.create(round_id: params[:round_id], card_id: params[:card_id], guess: params[:guess])
-  
-  # check if user input is equal to card answer
   corresponding_card = Card.find_by_id(params[:card_id])
-  attempt.correct = attempt.guess == corresponding_card.answer ? true : false
-  
-  # update attempt whether guessed correctly
+  if attempt.guess == corresponding_card.answer
+    Attempt.update(attempt.id, correct: true)
+  else
+    Attempt.update(attempt.id, correct: false)
+  end
   redirect to "/round/#{attempt.round_id}/card/#{attempt.card_id}/attempt/#{attempt.id}"
 end
 
 get '/round/:round_id/card/:card_id/attempt/:attempt_id' do 
-  # cature attempt in variable
   @attempt = Attempt.find_by_id(params[:attempt_id])
   @round = Round.find_by_id(params[:round_id])
   @card = Card.find_by_id(params[:card_id]) 
   erb :answer_view
 end
 
-
+post '/deck/:deck_id/round/:round_id' do
+  deck = Deck.find_by_id(params[:deck_id])
+  # Will have to grab user from session once that is implemented
+  user = User.find_by_id(1)
+  round = Round.find_by_id(params[:round_id])
+  card = deck.cards.find_by_id(2)
+  redirect to "/round/#{round.id}/card/#{card.id}"
+end
 #################    CHASM OF DOOOOOOOOOOOOMMMMMM        ########################
 
 #Chirag and Meara's side!!!!
