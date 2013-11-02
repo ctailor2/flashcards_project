@@ -7,7 +7,6 @@ get '/round/:round_id/card/:card_id' do
   @card = Card.find_by_id(params[:card_id])
     erb :card_view
   end
-  # erb :card_view
 end
 
 post '/round/:round_id/card/:card_id' do
@@ -53,7 +52,7 @@ end
 post '/deck/:deck_id/round/' do
   deck = Deck.find_by_id(params[:deck_id])
   # Will have to grab user from session once that is implemented
-  user = User.find_by_id(1)
+  user = User.first
   # Create a round 
   round = user.rounds.create(deck_id: deck.id)
   round.created_at.inspect
