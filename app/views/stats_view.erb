@@ -1,8 +1,6 @@
 <div class="container">
   <h1>Statistics for Round: <%= @round.id %></h1>
 
-<!-- Home button -->
-  <a href="/"><input type="submit" value="Home"></a>
 
   <ul>
     <li>Number of cards: <%= @round.deck.cards.count %></li>
@@ -12,9 +10,20 @@
     <li>Average number of guesses until correct: <%= @round.avg_num_guesses %></li>
   </ul>
 
+  <form action="/deck/<%= @round.deck_id %>/round/" method="POST">
+    <input type="submit" value="Try Again">
+  </form>
+
+
 
 </div>
 
+<div class="container">
+  <a href="/"><input type="submit" value="Home"</a>
+  <form action="/logout" method="POST">
+    <input type="submit" value="Logout">
+  </form>
+</div>
 <!-- provide link back to root page -->
 
 

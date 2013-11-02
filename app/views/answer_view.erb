@@ -24,9 +24,15 @@ else
     <input type="submit" value="Next Card">
   </form>
 
-  <a href="/"><input type="submit" value="Home"</a>
-
 </div>
+
+<div class="container">
+  <a href="/"><input type="submit" value="Home"</a>
+  <form action="/logout" method="POST">
+    <input type="submit" value="Logout">
+  </form>
+</div>
+
 <!-- 
 provide 'next' button directs to get 'round/:round_id/card/:card_id' 
 get card_id using helper method pass round from attempt -->
