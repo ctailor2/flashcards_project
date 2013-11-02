@@ -63,30 +63,38 @@ get '/' do
   end
 end
 
-post '/deck/:deck_id/round/' do
+post '/deck/:deck_id/newround' do
   deck = Deck.find_by_id(params[:deck_id])
-
   user = current_user
-  # Create a round 
+
+  # if round already exists and is not complete
+  #   pick up where the round left off
+  # else
+  # => 
   round = user.rounds.create(deck_id: deck.id)
+  p round
   round.created_at.inspect
-  # Get card from deck
   card = deck.cards.sample
-  # Redirect to get round/roundid/card/cardid
+  redirect to("/round/#{round.id}/card/#{card.id}")
+end
+
+post '/deck/:deck_id/continueround' do
+  deck = Deck.find_by_id(params[:deck_id])
+  user = current_user
+
+  # if round already exists and is not complete
+  #   pick up where the round left off
+  # else
+  # => 
+  round = Round.find_by_user_id_and_deck_id(user.id, deck.id)
+  card = deck.cards.sample
   redirect to("/round/#{round.id}/card/#{card.id}")
 end
 
 
-
 get '/round/:round_id/stats' do
-
   @round = Round.find(params[:round_id])
-
   erb :stats_view
-
 end 
 
-# ~> NoMethodError
-# ~> undefined method `get' for main:Object
-# ~>
-# ~> /Users/apprentice/Desktop/flashcards_project/app/controllers/index.rb:1:in `<main>'
+
