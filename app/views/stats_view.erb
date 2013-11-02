@@ -1,7 +1,21 @@
 <div class="container">
   <h1>Statistics for Round: <%= @round.id %></h1>
 
-  <a href="/"><input type="submit" value="Home"</a>
+<!-- Home button -->
+  <a href="/"><input type="submit" value="Home"></a>
+
+  <ul>
+    <li>Number of cards: <%= @round.deck.cards.count %></li>
+    <li>Total number of guesses: <%= @round.num_total_attempts %></li>
+    <li>Number of incorrect guesses: <%= @round.num_incorrect_attempts %></li>
+    <li>Percent correct: <%= @round.percent_correct %>%</li>
+    <li>Average number of guesses until correct: <%= @round.avg_num_guesses %></li>
+  </ul>
+
+
 </div>
 
 <!-- provide link back to root page -->
+
+
+<!-- When a user is done they should be redirected to a page that shows a list of all the rounds they've completed in chronological order from most recent to least recent. On this page you should also include stats about the round, like total number of guesses, total number of cards in the round, % correct, etc. -->

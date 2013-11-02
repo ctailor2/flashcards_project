@@ -29,8 +29,7 @@ end
 
 post '/deck/:deck_id/round/:round_id' do
   deck = Deck.find_by_id(params[:deck_id])
-  # Will have to grab user from session once that is implemented
-  user = User.find_by_id(1)
+
   round = Round.find_by_id(params[:round_id])
 
   answered_cards = []
@@ -56,19 +55,18 @@ end
 #Chirag and Meara's side!!!!
 
 get '/' do
-  # list decks
-  # decks are clickable
-  # deck links to post with deck_id
-
-  @decks = Deck.all
-
-  erb :index
+  if logged_in?
+    @decks = Deck.all
+    erb :index
+  else
+    redirect to('/login')
+  end
 end
 
 post '/deck/:deck_id/round/' do
   deck = Deck.find_by_id(params[:deck_id])
-  # Will have to grab user from session once that is implemented
-  user = User.first
+
+  user = current_user
   # Create a round 
   round = user.rounds.create(deck_id: deck.id)
   round.created_at.inspect
