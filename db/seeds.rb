@@ -1,4 +1,4 @@
-deck = Deck.create(title: "Salamander Namespwd")
+deck = Deck.create(title: "Salamander Names")
 
 deck.cards.create(question: "Alex", answer: "Froelich")
 deck.cards.create(question: "Andrew", answer: "Guard")
