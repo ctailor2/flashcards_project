@@ -11,11 +11,15 @@ get '/round/:round_id/card/:card_id' do
 end
 
 post '/round/:round_id/card/:card_id' do
-
   # insantiate attempt using round id, card id, and user input
+  attempt = Attempt.create(round_id: params[:round_id], card_id: params[:card_id], guess: params[:guess])
+  
   # check if user input is equal to card answer
+  corresponding_card = Card.find_by_id(params[:card_id])
+  attempt.correct = attempt.guess == corresponding_card.answer ? true : false
+  
   # update attempt whether guessed correctly
-  redirect to '/round/:round_id/card/:card_id/attempt/:attempt_id'
+  redirect to "/round/#{attempt.round_id}/card/#{attempt.card_id}/attempt/#{attempt.id}"
 end
 
 get '/round/:round_id/card/:card_id/attempt/:attempt_id' do 
