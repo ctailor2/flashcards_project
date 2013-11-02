@@ -32,21 +32,25 @@ post '/deck/:deck_id/round/:round_id' do
   # Will have to grab user from session once that is implemented
   user = User.find_by_id(1)
   round = Round.find_by_id(params[:round_id])
-  card = deck.cards.find_by_id(2)
 
-  card_obj_arr = deck.cards
-  attempt_obj_arr = round.attempts
-  correct_card_objs = []
-  attempt_obj_arr.each do |attempt_object|
-    if attempt_object.correct == true
-      correct_card_objs << Card.find_by_id(attempt_object.card_id)
-    end
+  answered_cards = []
+  correct_attempts = Attempt.where(round_id: round.id, correct: true)
+  correct_attempts.each do |attempt|
+    answered_cards << Card.find_by_id(attempt.card_id)
   end
-  unanswered_cards = card_obj_arr - correct_card_objs
+
+  unanswered_cards = deck.cards - answered_cards
   new_card = unanswered_cards.sample
 
-  redirect to "/round/#{round.id}/card/#{new_card.id}"
+  if round.complete?
+    redirect to "/round/#{round.id}/stats"
+  else 
+    redirect to "/round/#{round.id}/card/#{new_card.id}"
+  end
+
 end
+
+
 #################    CHASM OF DOOOOOOOOOOOOMMMMMM        ########################
 
 #Chirag and Meara's side!!!!
