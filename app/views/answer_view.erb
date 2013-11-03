@@ -17,17 +17,19 @@ else
     <% else %>
     <p>You were incorrect.</p>
     <% end %>
+    <p><%= @round.num_total_attempts %> attempt(s)</p>
   </div>
 
   <!--  -->
   <form action="/deck/<%= @round.deck_id %>/round/<%= @round.id %>" method='POST'>
     <input type="submit" value="Next Card" autofocus>
   </form>
-
+  <a href="/"><input type="submit" value="Continue Later"</a>
 </div>
 
 <div class="container">
-  <a href="/"><input type="submit" value="Home"</a>
+  
+
   <form action="/logout" method="POST">
     <input type="submit" value="Logout">
   </form>

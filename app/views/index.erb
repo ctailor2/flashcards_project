@@ -7,11 +7,13 @@
 <h3>Pick a deck to begin!</h3>
 
 <% @decks.each do |deck| %>
-
-<form action="/deck/<%= deck.id %>/round/" method="POST">
-  <input type="submit" value = "<%= deck.title %>">
+<h1><%= deck.title %></h1>
+<form action="/deck/<%= deck.id %>/continueround" method="POST">
+  <input type="submit" value = "Continue">
 </form>
-
+<form action="/deck/<%= deck.id %>/newround" method="POST">
+  <input type="submit" value = "New Round">
+</form>
 <% end %>
 
 <h3>Your history:</h3>
