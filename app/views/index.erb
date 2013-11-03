@@ -4,6 +4,8 @@
 
   <!-- clickable deck links for each deck, to post -->
 
+<h3>Pick a deck to begin!</h3>
+
 <% @decks.each do |deck| %>
 <h1><%= deck.title %></h1>
 <form action="/deck/<%= deck.id %>/continueround" method="POST">
@@ -13,6 +15,22 @@
   <input type="submit" value = "New Round">
 </form>
 <% end %>
+
+<h3>Your history:</h3>
+<table cellpadding="8">
+  <th>Completed Round</th>
+  <th>Correct</th>
+<% rounds_completed = current_user.rounds.sort_by { |round| round.id}.reverse %>
+<% rounds_completed.each do |round| %>
+  <% if round.complete? %>
+<tr>
+<td><%= round.deck.title %></td>
+<td><%= round.percent_correct %>%</td>
+  <% end %>
+<% end %>
+</tr>
+</table>
+
 
 </div>
 
