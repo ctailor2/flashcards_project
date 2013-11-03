@@ -26,7 +26,7 @@
 <% rounds_completed.each do |round| %>
   <% if round.complete? %>
 <tr>
-<td><%= round.deck.title %></td>
+<td><a href= <%= "/round/#{round.id}/stats" %> ><%= round.deck.title %></a></td>
 <td><%= round.percent_correct %>%</td>
   <% end %>
 <% end %>
