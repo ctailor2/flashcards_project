@@ -41,6 +41,7 @@ end
 get '/' do
   if logged_in?
     @decks = Deck.all
+    @user = current_user
     erb :index
   else
     redirect to('/login')
