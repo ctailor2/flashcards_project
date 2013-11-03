@@ -1,4 +1,5 @@
 get '/round/:round_id/card/:card_id' do
+  redirect to('/login') unless logged_in?
   @round = Round.find_by_id(params[:round_id])
 
   if @round.complete?
@@ -18,6 +19,7 @@ post '/round/:round_id/card/:card_id' do
 end
 
 get '/round/:round_id/card/:card_id/attempt/:attempt_id' do 
+  redirect to('/login') unless logged_in?
   @attempt = Attempt.find_by_id(params[:attempt_id])
   @round = Round.find_by_id(params[:round_id])
   @card = Card.find_by_id(params[:card_id]) 
@@ -68,6 +70,7 @@ end
 
 
 get '/round/:round_id/stats' do
+  redirect to('/login') unless logged_in?
   @round = Round.find(params[:round_id])
   erb :stats_view
 end 
