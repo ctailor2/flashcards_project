@@ -1,5 +1,5 @@
+helpers do 
 def new_card(round)
-  round = Round.find_by_id(params[:round_id])
   deck = round.deck
 
   answered_cards = []
@@ -20,4 +20,10 @@ def check_answer(card, attempt)
   else
     Attempt.update(attempt.id, correct: false)
   end
+end
+
+def continue_round?(deck, user)
+  user.rounds.find_by_deck_id(deck.id) != nil
+end
+
 end
