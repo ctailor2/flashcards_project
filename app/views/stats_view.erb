@@ -1,6 +1,7 @@
 <div class="container">
-  <h1>Statistics for Round: <%= @round.id %></h1>
 
+  <h1><%= stats_messages(@round)[:h1] %></h1>
+  <h3><%= stats_messages(@round)[:h3] %></h3>
 
   <ul>
     <li>Number of cards: <%= @round.deck.cards.count %></li>

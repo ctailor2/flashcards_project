@@ -23,7 +23,36 @@ def check_answer(card, attempt)
 end
 
 def continue_round?(deck, user)
-  user.rounds.find_by_deck_id(deck.id) != nil
+  round = Round.where(user_id: user.id, deck_id: deck.id).last
+  if round
+    !round.complete?
+  else
+    false
+  end
 end
+
+
+def stats_messages(round)
+  percentage = round.percent_correct
+  messages = Hash.new
+  case percentage
+  when 100
+    messages[:h1] = 'Perfect score!'
+    messages[:h3] =  'Crushing it.'
+  when 85..100
+    messages[:h1] = 'Good effort.'
+    messages[:h3] =  'Typing is hard.'
+  when 70..85
+    messages[:h1] = 'Can I give you some feedback?'
+    messages[:h3] = 'Just take one tissue.'
+  else
+    messages[:h1] = 'Really?'
+    messages[:h3] =  'Your score offends me.'
+  end
+  messages
+end
+
+
+
 
 end
