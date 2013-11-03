@@ -59,7 +59,7 @@ end
 post '/deck/:deck_id/continueround' do
   deck = Deck.find_by_id(params[:deck_id])
   user = current_user
-  round = Round.find_by_user_id_and_deck_id(user.id, deck.id)
+  round = Round.order("created_at DESC").find_by_user_id_and_deck_id(user.id, deck.id)
   
   # need to figure out a way to call new card helper method successfully
   card = deck.cards.sample
