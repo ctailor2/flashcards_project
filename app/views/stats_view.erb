@@ -11,7 +11,7 @@
     <li>Average number of guesses until correct: <%= @round.avg_num_guesses %></li>
   </ul>
 
-  <form action="/deck/<%= @round.deck_id %>/round/" method="POST">
+  <form action="/deck/<%= @round.deck_id %>/newround" method="POST">
     <input type="submit" value="Try Again">
   </form>
 
