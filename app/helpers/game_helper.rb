@@ -1,6 +1,5 @@
 helpers do 
 def new_card(round)
-  round = Round.find_by_id(params[:round_id])
   deck = round.deck
 
   answered_cards = []

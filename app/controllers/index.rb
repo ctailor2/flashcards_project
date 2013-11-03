@@ -62,7 +62,7 @@ post '/deck/:deck_id/continueround' do
   round = Round.order("created_at DESC").find_by_user_id_and_deck_id(user.id, deck.id)
   
   # need to figure out a way to call new card helper method successfully
-  card = deck.cards.sample
+  card = new_card(round)
   redirect to("/round/#{round.id}/card/#{card.id}")
 end
 
