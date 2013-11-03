@@ -7,3 +7,248 @@
 th {
   text-align: left;
 }
+
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+@import url(animate.css);
+
+body {
+  font-family: sans-serif;
+/*  background:url(wood-patio.jpg);
+  background-size:100% 100%;
+  background-repeat:no-repeat;*/
+}
+.header.* {
+  float: left;
+}
+.header {
+  width: 100%;
+  /*display: inline-block;*/
+  /*float: left;*/
+  /*background-color: pink;*/
+  /*padding: 3px;*/
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+#username.header {
+  font-weight: bold;
+}
+
+#logo {
+  /*display: inline-block;*/
+  /*background-color: yellow;*/
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 20px;
+  width: 500px;
+}
+
+#user_tools {
+  /*background-color: LightGreen;*/
+  display: inline-block;
+  font-size: 12px;
+  padding: 1em;
+
+}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
+ 
+
+.card {
+  background-image:url('paper-texture.jpg');
+  margin-bottom: 1em;
+  padding: 0px 20px 0px 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 460px;
+  box-shadow: 0px 0px 25px #CCCCCC;
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 32px;
+  text-shadow: 0px 0px 2px LightGray;
+
+  line-height: 0.9em;
+  color: #555555;
+  min-height: 300px;
+
+  /* center vertically */
+  display: box;
+  box-pack: center;
+  box-align: center;
+
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+}
+
+#form {
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  width: 500px;
+  /*background-color: Beige;*/
+  text-align: center;
+}
+
+.card h2 {
+  border-bottom-color: DarkRed;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  margin-top: 0px;
+}
+
+.button {
+  color: gray;
+  background-color: transparent;
+  border-style: solid;
+  border-color: LightGray;
+  border-width: 1;
+  padding: 15px;
+  font-weight: normal   ;
+  font-size: 20px;
+}
+
+.button:hover{
+  border-color: Gray;
+  background-color: Gray;
+  color: White;
+}
+
+.textfield {
+  padding: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: LightGray;
+  font-size: 20px;
+  color: gray;
+}
+
+.deckcollection {
+  display: inline-block;
+}
+.deck {
+  display: inline-block;
+
+
+
+}
+
+.deck a{
+  text-decoration: none;
+  background-image:url('paper-texture.jpg');
+  background-color: white; 
+
+  color: #555555;
+
+  min-height: 150px;
+  width: 250px;
+  margin: 12px;
+  padding: 10px;
+
+  box-shadow: none;
+
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 20px;
+  text-shadow: 0px 0px 2px LightGray;
+
+  border-style: solid;
+  border-width: 1px;
+
+  /* center vertically */
+  display: box;
+  box-pack: center;
+  box-align: center;
+
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+}
+
+.deck a:hover{
+  position: relative; 
+    top: -6px; 
+    left: -6px;
+  box-shadow: 1px 1px 0px 0px #DDD,
+        2px 2px 0px 0px #999,
+        3px 3px 0px 0px #DDD,
+        4px 4px 0px 0px #999,
+        5px 5px 0px 0px #DDD,
+        6px 6px 0px 0px #999;
+  -webkit-transition: all 0.2s ease-out;
+}
+
+.newdeck {
+  display: inline-block;
+}
+
+.newdeck a{
+  text-decoration: none;
+  /*background-image:url('paper-texture.jpg');*/
+  background-color: white; 
+
+  display: inline-block;
+  min-height: 150px;
+  width: 250px;
+  margin: 10px;
+  padding: 10px;
+  border-style: dashed;
+  border-width: 1px;
+
+  color: #555555;
+
+  min-height: 150px;
+  width: 250px;
+  margin: 12px;
+  padding: 10px;
+
+  box-shadow: none;
+
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 90px;
+  text-shadow: 0px 0px 2px LightGray;
+
+  /* center vertically */
+  display: box;
+  box-pack: center;
+  box-align: center;
+
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+}
+
+.newdeck a:hover{
+  position: relative; 
+    top: -6px; 
+    left: -6px;
+  /* boxshadow to simulate 3D stack */
+  box-shadow: 1px 1px 0px 0px #DDD,
+        2px 2px 0px 0px #999,
+        3px 3px 0px 0px #DDD,
+        4px 4px 0px 0px #999,
+        5px 5px 0px 0px #DDD,
+        6px 6px 0px 0px #999;
+  -webkit-transition: all 0.2s ease-out;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 12px;
+  opacity:0.4;
+  /*font-variant: small-caps;*/
+  vertical-align: top;
+}
+
+.footer img {
+  width: 75px;
+  height: 19px;
+  margin-right: 3px;
+}
