@@ -26,6 +26,7 @@ get '/round/:round_id/card/:card_id/attempt/:attempt_id' do
   erb :answer_view
 end
 
+#next card post request
 post '/deck/:deck_id/round/:round_id' do
   round = Round.find_by_id(params[:round_id])
 

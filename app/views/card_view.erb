@@ -8,7 +8,7 @@
   </div>
 
   <div class="form">
-   <form action="/round/<%= @round.id %>/card/<%= @card.id %>" method="post">
+   <form action="/round/<%= @round.id %>/card/<%= @card.id %>" method="post" id="check_answer">
       <input type="text" name="guess" autofocus>
       <input type="submit" value="Check Answer">
     </form>

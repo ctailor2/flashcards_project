@@ -4,7 +4,7 @@ else
   display incorrect message
  -->
 
-<div class="container">
+<div class="container" class="answers">
 
   <h2>A:</h2>
   
@@ -22,7 +22,7 @@ else
   </div>
 
   <!--  -->
-  <form action="/deck/<%= @round.deck_id %>/round/<%= @round.id %>" method='POST'>
+  <form action="/deck/<%= @round.deck_id %>/round/<%= @round.id %>" method='POST' id="next_card">
     <input type="submit" value="Next Card" autofocus>
   </form>
   <a href="/"><input type="submit" value="Continue Later"</a>
