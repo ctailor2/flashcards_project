@@ -1,3 +1,4 @@
+<a href="/"><div class="container"></div></a>
 
 <div class="container">
   <h2>Card view page (replace name)</h2>
@@ -11,6 +12,9 @@
       <input type="text" name="guess" autofocus>
       <input type="submit" value="Check Answer">
     </form>
+    <a href="/"><input type="submit" value="Continue Later"></a>
+
+  <p><%= @round.num_total_attempts %> attempts</p>
   </div>
 
   
@@ -20,7 +24,6 @@
 <!-- LOGOUT BUTTON -->
 
 <div class="container">
-  <a href="/"><input type="submit" value="Home"</a>
   <form action="/logout" method="POST">
     <input type="submit" value="Logout">
   </form>
