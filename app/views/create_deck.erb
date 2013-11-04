@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Create Deck</h1>
+
+  <form action="/newdeck" method="POST">
+    Title:<input type="text" name="title" id="title">
+    <h3>Cards:</h3>
+    <table id="QAtable">
+      <tr>
+        <th>Question</th>
+        <th>Answer</th>
+      </tr>
+      <tr>
+        <td><input type="text" name="questions[]" id="question"></td>
+        <td><input type="text" name="answers[]" id="answer"></td>
+        <td><button id="remove">X</button>
+      </tr>
+    </table>
+    <button id="add">Add Card</button>
+    <br>
+    <br>
+    <br>
+    <input type="submit" value="Create" id="submit">
+  </form>
+</div>
