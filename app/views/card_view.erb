@@ -1,37 +1,44 @@
-<a href="/"><div class="container"></div></a>
+<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+<div class="content">
 
-<div class="container">
-  <h2>Q:</h2>
-  <!-- <h3>Submit answer below:</h3> -->
-  <div class="card">
+    <div class="header">
+      <div id="logo">
+        <a href="/"><img src="/flashcard_logo.png"></a>
+      </div>
+
+      <div id="user_tools">
+        <div id="username">
+          <%= current_user.name %>
+        </div>
+        <div>
+          <form action="/logout" method="POST">
+          <input type="image" name="Submit" src="/exit-button.png" alt="Log out">
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="card animated flipInY">
     <p><%= @card.question %></p>
-  </div>
+  </div> 
 
-  <div class="form">
-   <form action="/round/<%= @round.id %>/card/<%= @card.id %>" method="post">
-      <input type="text" name="guess" autofocus>
-      <input type="submit" value="Check Answer">
+  <div id="form" >
+    <form action="/round/<%= @round.id %>/card/<%= @card.id %>" method="post">
+      <input type="text" class="textfield" size="30" name="guess" autofocus>
+      <input type="submit" class="button" value="&#8629;">
     </form>
-    <a href="/"><input type="submit" value="Continue Later"></a>
-
-  <p><%= @round.num_total_attempts %> attempts</p>
+    <br><br>
+    <a href="/"><input type="submit" class="button" value="Continue Later"></a>
   </div>
 
-  
+
+
+  <div class="footer">
+    <img src="/flashcard_logo.png"> is a collaborative project from Meara, Katy, Daniel, and Chirag.
+  </div>
 </div>
 
 
-<!-- LOGOUT BUTTON -->
-
-<div class="container">
-  <form action="/logout" method="POST">
-    <input type="submit" value="Logout">
-  </form>
-</div>
-
-
-<!-- display prompt
-
-have form to capture answer
-
-provide link that directs to post request for corresponding card -->

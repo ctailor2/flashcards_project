@@ -1,39 +1,55 @@
+<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 <!-- if attempt variable is true
   display correct message
 else 
   display incorrect message
  -->
+ <div class="content">
 
-<div class="container">
+      <div class="header">
+      <div id="logo">
+        <a href="/"><img src="/flashcard_logo.png"></a>
+      </div>
 
-  <h2>A:</h2>
-  
+      <div id="user_tools">
+        <div id="username">
+          <%= current_user.name %>
+        </div>
+        <div>
+          <form action="/logout" method="POST">
+          <input type="image" name="Submit" src="/exit-button.png" alt="Log out">
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 
+      <form action="/logout" method="POST">
+        <input type="submit" value="Logout">
+      </form>
+     -->
+  <div class="result animated bounceIn">
   <% if @attempt.correct %>
-      <h3>Correct!</h3>
+      <div class="correctanswer">Correct!</div>
   <% else %>
-      <h3>Incorrect.</h3>
+      <div class="wronganswer">Incorrect.</div>
   <% end %>
+  </div>
   
-  <div class="card">
-    <p>You guessed: <%= @attempt.guess %></p> 
-    <p>Answer: <%= @card.answer %></p>
+  <div class="card animated flipInY">
+    <p>You guessed: <%= @attempt.guess %><br><br>
+    Answer: <%= @card.answer %></p>
     <!-- <p><%= @round.num_total_attempts %> attempt(s)</p> -->
   
   </div>
 
   <!--  -->
+  <div id="form">
   <form action="/deck/<%= @round.deck_id %>/round/<%= @round.id %>" method='POST'>
-    <input type="submit" value="Next Card" autofocus>
+    <input type="submit" class="button" value="Next Card" autofocus>
   </form>
-  <a href="/"><input type="submit" value="Continue Later"</a>
-</div>
-
-<div class="container">
-  
-
-  <form action="/logout" method="POST">
-    <input type="submit" value="Logout">
-  </form>
+  <a href="/"><input type="submit" class="button" value="Continue Later"</a>
+  </div>
 </div>
 
 <!-- 

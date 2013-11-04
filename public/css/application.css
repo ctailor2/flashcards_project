@@ -52,12 +52,12 @@ body {
 }
 
 .content {
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   width: 600px;
 }
  
-
 .card {
   background-image:url('paper-texture.jpg');
   margin-bottom: 1em;
@@ -109,6 +109,7 @@ body {
   border-color: LightGray;
   border-width: 1;
   padding: 15px;
+
   font-weight: normal   ;
   font-size: 20px;
 }
@@ -119,6 +120,69 @@ body {
   color: White;
 }
 
+.cardcollectionbutton {
+  display: none;
+  color: gray;
+  background-color: transparent;
+  border-style: solid;
+  border-color: LightGray;
+  border-width: 1;
+  padding: 5px;
+  margin-left: 15px;
+  font-weight: normal   ;
+  font-size: 12px;
+}
+
+form {
+    display: inline-block;
+    clear: both;
+}
+
+.cardviewbutton {
+  color: gray;
+  background-color: transparent;
+  border-style: solid;
+  border-color: LightGray;
+  border-width: 1;
+  padding: 5px;
+  margin-left: 15px;
+  font-weight: normal   ;
+  font-size: 12px;
+}
+
+
+.answerviewbutton {
+  color: gray;
+  background-color: transparent;
+  border-style: solid;
+  border-color: LightGray;
+  border-width: 1;
+  padding: 5px;
+  margin-left: 15px;
+  font-weight: normal   ;
+  font-size: 12px;
+}
+
+.result {
+  position: absolute;
+  top: 150px; 
+  left: 100px;
+  z-index: 1;
+/*  -webkit-transform: rotate(20deg);*/
+  -webkit-transform: rotate(60deg);
+
+  font-size: 40px;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.correctanswer{
+  color: RoyalBlue;
+}
+
+.wronganswer {
+  color: DarkRed;
+}
+
 .textfield {
   padding: 15px;
   border-style: solid;
@@ -126,18 +190,66 @@ body {
   border-color: LightGray;
   font-size: 20px;
   color: gray;
+  margin: 10px 0px 10px 0px;
 }
 
 .deckcollection {
   display: inline-block;
 }
 .deck {
+  
+  text-align: center;
+
+  text-decoration: none;
+  background-image:url('paper-texture.jpg');
+  background-color: white; 
+
+  color: #555555;
+
+  height: 150px;
+  width: 250px;
+  margin: 12px;
+  padding: 10px;
+
+  box-shadow: none;
+
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 20px;
+  text-shadow: 0px 0px 2px LightGray;
+
+  border-style: solid;
+  border-width: 1px;
+/*
+  /!-- center vertically --/
+  display: box;
+  box-pack: center;
+  box-align: center;
+
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+*/
   display: inline-block;
-
-
-
 }
 
+.decktitle {
+  padding-top: 45px;
+}
+
+.deck:hover{
+  position: relative; 
+  top: -6px; 
+  left: -6px;
+  box-shadow: 1px 1px 0px 0px #DDD,
+        2px 2px 0px 0px #999,
+        3px 3px 0px 0px #DDD,
+        4px 4px 0px 0px #999,
+        5px 5px 0px 0px #DDD,
+        6px 6px 0px 0px #999;
+  transition: all 0.2s ease-out;
+}
+/*
 .deck a{
   text-decoration: none;
   background-image:url('paper-texture.jpg');
@@ -160,7 +272,7 @@ body {
   border-style: solid;
   border-width: 1px;
 
-  /* center vertically */
+  /!-- center vertically --/
   display: box;
   box-pack: center;
   box-align: center;
@@ -169,7 +281,8 @@ body {
   -webkit-box-pack: center;
   -webkit-box-align: center;
 }
-
+*/
+/*
 .deck a:hover{
   position: relative; 
     top: -6px; 
@@ -180,9 +293,9 @@ body {
         4px 4px 0px 0px #999,
         5px 5px 0px 0px #DDD,
         6px 6px 0px 0px #999;
-  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
-
+*/
 .newdeck {
   display: inline-block;
 }
@@ -238,6 +351,81 @@ body {
   -webkit-transition: all 0.2s ease-out;
 }
 
+.yourhistory {
+  /*background-color: yellow;*/
+  padding-left: 190px;
+}
+
+.yourhistory table {
+  padding: 15px;
+}
+
+.yourhistory tr {
+  /*padding: 10px;*/
+
+}
+
+.yourhistory td {
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.yourhistory h3 {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.leftcolumn {
+  width: 200px;
+  float: left;
+  min-height: 400px;
+}
+
+.rightcolumn {
+  width: 400px;
+  float: right;
+  min-height: 400px;
+}
+
+.speechbubble {
+  position: relative;
+  background-color: AliceBlue;
+  border-radius: 10px;
+  padding: 20px 0px 20px 0px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
+  text-align: center;
+  line-height: 1em;
+}
+
+.speechbubble:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 30px;
+  top: 80px;
+  border: 25px solid;
+  border-color: AliceBlue transparent transparent AliceBlue;
+}
+
+.statstable {
+  margin: 40px 0px 0px 30px;
+  line-height: 1.5em;
+  font-size: 20px;
+  font-family: "Courier New";
+}
+
+.logintable td {
+  font-size: 20px;
+  padding: 0px 10px 0px 20px;
+  text-align: center;
+}
+
+.headline {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 32px;
+}
+
 .footer {
   text-align: center;
   margin-top: 40px;
@@ -245,6 +433,7 @@ body {
   opacity:0.4;
   /*font-variant: small-caps;*/
   vertical-align: top;
+
 }
 
 .footer img {

@@ -1,44 +1,65 @@
-<div class="container">
-  <h1>Welcome to Flashcards!</h1>
-  <h2>Hi, <%= current_user.name %>.</h2>
-
   <!-- clickable deck links for each deck, to post -->
+<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+<div class="content">
 
-<h3>Pick a deck to begin!</h3>
+    <div class="header">
+      <div id="logo">
+        <a href="/"><img src="/flashcard_logo.png"></a>
+      </div>
 
-<% @decks.each do |deck| %>
-  <h1><%= deck.title %></h1>
-    <% if continue_round?(deck, @user) %>
-      <form action="/deck/<%= deck.id %>/continueround" method="POST">
-        <input type="submit" value = "Continue">
+      <div id="user_tools">
+        <div id="username">
+          <%= current_user.name %>
+        </div>
+        <div>
+          <form action="/logout" method="POST">
+          <input type="image" name="Submit" src="/exit-button.png" alt="Log out">
+          </form>
+        </div>
+      </div>
+    </div>
+
+  <div class="deckcollection">
+    <% @decks.each do |deck| %>
+      <div class="deck"><div class="decktitle"><%= deck.title %></div>
+      <% if continue_round?(deck, @user) %>
+        <form action="/deck/<%= deck.id %>/continueround" method="POST">
+          <input type="submit" class="cardcollectionbutton" value = "Continue">
+        </form>
+      <% end %>
+      <form action="/deck/<%= deck.id %>/newround" method="POST">
+        <input type="submit" class="cardcollectionbutton" value = "New Round">
       </form>
+      </div>
     <% end %>
-    <form action="/deck/<%= deck.id %>/newround" method="POST">
-    <input type="submit" value = "New Round">
-    </form>
-<% end %>
+    <div class="newdeck"><a href="">+</a></div>
+  </div>
 
-<h3>Your history:</h3>
-<table cellpadding="8">
-  <th>Completed Round</th>
-  <th>Correct</th>
-<% rounds_completed = current_user.rounds.sort_by { |round| round.id}.reverse %>
-<% rounds_completed.each do |round| %>
-  <% if round.complete? %>
-<tr>
-<td><a href= <%= "/round/#{round.id}/stats" %> ><%= round.deck.title %></a></td>
-<td><%= round.percent_correct %>%</td>
-  <% end %>
-<% end %>
-</tr>
-</table>
+  <div class="yourhistory">
+    <h3>Your history:</h3>
+    <table>
+      <tr>
+        <td>Completed Round</td>
+        <td>Correct</td>
+      </tr>
 
+      <% rounds_completed = current_user.rounds.sort_by { |round| round.id}.reverse %>
+      <% rounds_completed.each do |round| %>
+        <% if round.complete? %>
+          <tr>
+          <td><a href= <%= "/round/#{round.id}/stats" %> ><%= round.deck.title %></a></td>
+          <td><%= round.percent_correct %>%</td>
+        <% end %>
+          </tr>
+      <% end %>
+      
+    </table>
+  </div> 
+
+  <div class="footer">
+    <img src="flashcard_logo.png"> is a collaborative project from Meara, Katy, Daniel, and Chirag.
+  </div>
 
 </div>
 
-<div class="container">
-  <form action="/logout" method="POST">
-    <input type="submit" value="Logout">
-  </form>
-</div>
 

@@ -1,43 +1,50 @@
-<div class="container">
+<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+<div class="content">
 
-  <a href='/register'>
-    <button style="width:100px">Register</button>
-  </a>
+    <div class="header">
+      <div id="logo">
+        <a href="/"><img src="/flashcard_logo.png"></a>
+      </div>
 
-  <h1>Login</h1>
+      <div id="user_tools">
+        <div>
+        </div>
+      </div>
+    </div>
 
-  <table style="width:550px" border="1">
+
+  <div class="headline">Login</div>
+
+  <table class="logintable">
     <form action="/login" method="POST">
       <tr>
         <td>Email:</td>
-        <td><input type="text" style="width:515px" name="email"></td>
+        <td><input class="textfield" type="text" name="email" autofocus></td>
       </tr>
       <tr>
         <td>Password:</td>
-        <td><input type="password" style="width:515px" name="password"></td>
+        <td><input class="textfield" type="password" name="password"></td>
       </tr>
       <tr>
-        <td></td>
-        <td><input type="submit" value="Login"></td>
+        <td colspan="2">
+          <% if @errors %>
+            <ul>
+              <% @errors.each do |field, message| %>
+              <div style="color:red"><%= field %> <%= message %></div
+              <% end %>
+            </ul>
+          <% end %> 
+        </td>
       </tr>
-    </form>
+      <tr>
+        <td>         
+        </td>
+        <td><input class="button" type="submit" value="Login"></form>&nbsp;&nbsp;<a href='/register'><button class="button">Register</button></a></td>
+      </tr>
   </table>
 
-  <% if @errors %>
-    <p>Errors on the page:</p>
-    <ul>
-      <% @errors.each do |field, message| %>
-      <li style="color:red"><%= field %> <%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
 </div>
-
-<!-- not sure why this is necessary here -->
-
-<!-- <div class="container">
-  <form action="/" method="GET">
-    <input type="submit" value="Cancel">
-  </form>
-</div> -->
+  <div class="footer">
+    <img src="/flashcard_logo.png"> is a collaborative project from Meara, Katy, Daniel, and Chirag.
+  </div>
+</div>

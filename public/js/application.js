@@ -4,4 +4,15 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+$(".deck").hover(
+  function(){
+    $(this).find(".cardcollectionbutton").fadeIn(400);
+  }, function(){
+    $(this).find(".cardcollectionbutton").fadeOut(400);
+  }
+);
+
 });
+
+
+
