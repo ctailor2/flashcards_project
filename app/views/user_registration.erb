@@ -1,45 +1,58 @@
-<div class="container">
+<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+<div class="content">
 
-  <a href='/login'>
-    <button style="width:100px">Login</button>
-  </a>
+    <div class="header">
+      <div id="logo">
+        <a href="/"><img src="/flashcard_logo.png"></a>
+      </div>
 
-  <h1>Register</h1>
+      <div id="user_tools">
+        <div>
+        </div>
+      </div>
+    </div>
 
-  <table style="width:550px" border="1">
+  <div class="headline">Register</div>
+
+  <table class="logintable">
     <form action="/register" method="POST">
       <tr>
         <td>Name:</td>
-        <td><input type="text" style="width:515px" name="name"></td>
+        <td><input type="text" class="textfield"  name="name"></td>
       </tr>
       <tr>
         <td>Email:</td>
-        <td><input type="text" style="width:515px" name="email"></td>
+        <td><input type="text" class="textfield" name="email"></td>
       </tr>
       <tr>
         <td>Password:</td>
-        <td><input type="text" style="width:515px" name="password"></td>
+        <td><input type="text" class="textfield" name="password"></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <% if @errors %>
+            <ul>
+              <% @errors.each do |field, message| %>
+              <div style="color:red"><%= field %> <%= message %></div>
+              <% end %>
+            </ul>
+          <% end %>
+
+        </td>
       </tr>
       <tr>
         <td></td>
-        <td><input type="submit" value="Sign-up"></td>
+        <td><input type="submit" class="button" value="Sign-up"></form>&nbsp;&nbsp;
+          <a href='/login'>
+            <button class="button">Login</button>
+          </a>
+        </td>
       </tr>
     </form>
   </table>
 
-  <% if @errors %>
-    <p>Errors on the page:</p>
-    <ul>
-      <% @errors.each do |field, message| %>
-      <li style="color:red"><%= field %> <%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
 
-</div>
-
-<div class="container">
-  <form action="/" method="GET">
-    <input type="submit" value="Cancel">
-  </form>
+  <div class="footer">
+    <img src="/flashcard_logo.png"> is a collaborative project from Meara, Katy, Daniel, and Chirag.
+  </div>
 </div>

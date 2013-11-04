@@ -39,15 +39,19 @@ def stats_messages(round)
   when 100
     messages[:h1] = 'Perfect score!'
     messages[:h3] =  'Crushing it.'
+    messages[:image_url] = "/erik.png"
   when 85..100
     messages[:h1] = 'Good effort.'
     messages[:h3] =  'Typing is hard.'
+    messages[:image_url] = "/mike.png"
   when 70..85
     messages[:h1] = 'Can I give you some feedback?'
     messages[:h3] = 'Just take one tissue.'
+    messages[:image_url] = "/dave.png"
   else
     messages[:h1] = 'Really?'
     messages[:h3] =  'Your score offends me.'
+    messages[:image_url] = "/abi.png"
   end
   messages
 end

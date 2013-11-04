@@ -1,11 +1,9 @@
-$(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-});
 
+<<<<<<< HEAD
+
+
+=======
 // jQuery to add rows to table when creating a deck.
 $(document).ready(function(){
   $("#add").click(function(){
@@ -38,3 +36,21 @@ $(document).ready(function(){
     }
   });
 });
+
+$(document).ready(function() {
+  // This is called after the document has loaded in its entirety
+  // This guarantees that any elements we bind to will exist on the page
+  // when we try to bind to them
+
+  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+$(".deck").hover(
+  function(){
+    $(this).find(".cardcollectionbutton").fadeIn(400);
+  }, function(){
+    $(this).find(".cardcollectionbutton").fadeOut(400);
+  }
+);
+
+});
+
+>>>>>>> 27fac7d5f2852facabb302d2e6b55ebf567be954
