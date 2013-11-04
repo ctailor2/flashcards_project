@@ -1,9 +1,4 @@
 
-
-<<<<<<< HEAD
-
-
-=======
 // jQuery to add rows to table when creating a deck.
 $(document).ready(function(){
   $("#add").click(function(){
@@ -53,4 +48,3 @@ $(".deck").hover(
 
 });
 
->>>>>>> 27fac7d5f2852facabb302d2e6b55ebf567be954

@@ -202,7 +202,6 @@ form {
 
   text-decoration: none;
   background-image:url('paper-texture.jpg');
-  background-color: white; 
 
   color: #555555;
 
@@ -249,7 +248,7 @@ form {
         6px 6px 0px 0px #999;
   transition: all 0.2s ease-out;
 }
-/*
+
 .deck a{
   text-decoration: none;
   background-image:url('paper-texture.jpg');
@@ -281,8 +280,8 @@ form {
   -webkit-box-pack: center;
   -webkit-box-align: center;
 }
-*/
-/*
+
+
 .deck a:hover{
   position: relative; 
     top: -6px; 
@@ -295,30 +294,31 @@ form {
         6px 6px 0px 0px #999;
   transition: all 0.2s ease-out;
 }
-*/
+
 .newdeck {
+  position: relative;
+  top: -12px;
+  margin: 12px 0px 0px 12px;
   display: inline-block;
+  height: 150px;
+  width: 250px;
+  /*margin: 12px;*/
+  /*padding: 10px;*/
 }
 
 .newdeck a{
   text-decoration: none;
-  /*background-image:url('paper-texture.jpg');*/
   background-color: white; 
-
-  display: inline-block;
-  min-height: 150px;
+  /*margin: 12px 0px 0px 0px;*/
+  display: block;
+  height: 150px;
   width: 250px;
-  margin: 10px;
   padding: 10px;
+
   border-style: dashed;
   border-width: 1px;
 
   color: #555555;
-
-  min-height: 150px;
-  width: 250px;
-  margin: 12px;
-  padding: 10px;
 
   box-shadow: none;
 
@@ -328,6 +328,7 @@ form {
   text-shadow: 0px 0px 2px LightGray;
 
   /* center vertically */
+/*  
   display: box;
   box-pack: center;
   box-align: center;
@@ -335,6 +336,7 @@ form {
   display: -webkit-box;
   -webkit-box-pack: center;
   -webkit-box-align: center;
+*/
 }
 
 .newdeck a:hover{
@@ -352,7 +354,7 @@ form {
 }
 
 .yourhistory {
-  /*background-color: yellow;*/
+  float: clear;
   padding-left: 190px;
 }
 
@@ -362,7 +364,6 @@ form {
 
 .yourhistory tr {
   /*padding: 10px;*/
-
 }
 
 .yourhistory td {
