@@ -6,4 +6,4 @@ Katy Exline
 Daniel Lu
 Chirag Tailor
 
-Chirag and Meara working on root and stats.
+App deployed on heroku at [http://dbc-flashcard.herokuapp.com/](http://dbc-flashcard.herokuapp.com/)
